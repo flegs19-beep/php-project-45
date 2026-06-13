@@ -9,6 +9,13 @@ class ComposerStaticInit0e1f39089bc4ed789f311f69122eb82e
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'be01b9b16925dcb22165c40b46681ac6' => __DIR__ . '/..' . '/wp-cli/php-cli-tools/lib/cli/cli.php',
+        '153b3f9a6ef915fed43292a3761aa01c' => __DIR__ . '/../..' . '/src/Engine.php',
+        '4829b2fddb6a054e51fbedd69dcbc605' => __DIR__ . '/../..' . '/src/Cli.php',
+        'e65195fb771d17f9508de487946ca51a' => __DIR__ . '/../..' . '/src/Games/Calc.php',
+        '198e0f0640b611405aeca6f3ecf56ea7' => __DIR__ . '/../..' . '/src/Games/Even.php',
+        '54231d8f03cce07316edf2be424ba354' => __DIR__ . '/../..' . '/src/Games/Gcd.php',
+        'ab7d0a5c79830f3a4cc981aa5f65c6e1' => __DIR__ . '/../..' . '/src/Games/Progression.php',
+        '41e478cbe0ac2a62b8266e0f4a71eed0' => __DIR__ . '/../..' . '/src/Games/Prime.php',
     );
 
     public static $prefixLengthsPsr4 = array (

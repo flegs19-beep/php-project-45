@@ -3,6 +3,6 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use Hexlet\Code\Cli;
+use function Hexlet\Code\greet;
 
-Cli::greet();
+greet();
