@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit0e1f39089bc4ed789f311f69122eb82e
 {
+    public static $files = array (
+        'be01b9b16925dcb22165c40b46681ac6' => __DIR__ . '/..' . '/wp-cli/php-cli-tools/lib/cli/cli.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'H' =>
         array (
@@ -20,6 +24,16 @@ class ComposerStaticInit0e1f39089bc4ed789f311f69122eb82e
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'c' =>
+        array (
+            'cli' =>
+            array (
+                0 => __DIR__ . '/..' . '/wp-cli/php-cli-tools/lib',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -29,6 +43,7 @@ class ComposerStaticInit0e1f39089bc4ed789f311f69122eb82e
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit0e1f39089bc4ed789f311f69122eb82e::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit0e1f39089bc4ed789f311f69122eb82e::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit0e1f39089bc4ed789f311f69122eb82e::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit0e1f39089bc4ed789f311f69122eb82e::$classMap;
 
         }, null, ClassLoader::class);

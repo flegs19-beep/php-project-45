@@ -3,4 +3,6 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-echo "Welcome to the Brain Games!\n";
+use Hexlet\Code\Cli;
+
+Cli::greet();
