@@ -7,20 +7,37 @@ namespace Composer\Autoload;
 class ComposerStaticInit0e1f39089bc4ed789f311f69122eb82e
 {
     public static $files = array (
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'be01b9b16925dcb22165c40b46681ac6' => __DIR__ . '/..' . '/wp-cli/php-cli-tools/lib/cli/cli.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'P' =>
+        array (
+            'Psr\\Container\\' => 14,
+        ),
         'H' =>
         array (
             'Hexlet\\Code\\' => 12,
         ),
+        'F' =>
+        array (
+            'Faker\\' => 6,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Psr\\Container\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
         'Hexlet\\Code\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Faker\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/fakerphp/faker/src/Faker',
         ),
     );
 
