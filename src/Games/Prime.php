@@ -4,7 +4,7 @@ namespace Hexlet\Code\Games;
 
 function getPrimeRound()
 {
-    $number = rand(2, 100);
+    $number = random_int(2, 100);
 
     $isPrime = function ($n) {
         if ($n < 2) {

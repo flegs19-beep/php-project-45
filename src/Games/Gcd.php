@@ -4,8 +4,8 @@ namespace Hexlet\Code\Games;
 
 function getGcdRound()
 {
-    $a = rand(1, 100);
-    $b = rand(1, 100);
+    $a = random_int(1, 100);
+    $b = random_int(1, 100);
 
     $x = $a;
     $y = $b;

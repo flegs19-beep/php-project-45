@@ -4,8 +4,8 @@ namespace Hexlet\Code\Games;
 
 function getCalcRound()
 {
-    $a = rand(1, 20);
-    $b = rand(1, 20);
+    $a = random_int(1, 20);
+    $b = random_int(1, 20);
 
     $operations = ['+', '-', '*'];
     $operation = $operations[array_rand($operations)];

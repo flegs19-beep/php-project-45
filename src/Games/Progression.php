@@ -4,9 +4,9 @@ namespace Hexlet\Code\Games;
 
 function getProgressionRound()
 {
-    $length = rand(5, 10);
-    $start = rand(1, 10);
-    $step = rand(2, 5);
+    $length = random_int(5, 10);
+    $start = random_int(1, 10);
+    $step = random_int(2, 5);
 
     $progression = [];
 
@@ -14,7 +14,7 @@ function getProgressionRound()
         $progression[] = $start + $i * $step;
     }
 
-    $hiddenIndex = rand(0, $length - 1);
+    $hiddenIndex = random_int(0, $length - 1);
     $correct = $progression[$hiddenIndex];
 
     $progression[$hiddenIndex] = '..';
