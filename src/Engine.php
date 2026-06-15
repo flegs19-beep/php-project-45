@@ -1,27 +1,33 @@
 <?php
 
-namespace Hexlet\Code;
+namespace BrainGames\Engine;
 
 use function cli\line;
 use function cli\prompt;
 
-function runGame(string $rule, callable $getRoundData)
+const ROUNDS_COUNT = 3;
+
+function runGame(string $rule, callable $getRoundData): void
 {
     line('Welcome to the Brain Games!');
-
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
 
     line($rule);
 
-    for ($i = 0; $i < 3; $i++) {
-        [$question, $correct] = $getRoundData();
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
+        [$question, $correctAnswer] = $getRoundData();
 
         line("Question: %s", $question);
         $answer = prompt('Your answer');
 
-        if ((string)$answer !== (string)$correct) {
-            line("'%s' is wrong answer ;(. Correct answer was '%s'. Let's try again, %s!", $answer, $correct, $name);
+        if ($answer !== $correctAnswer) {
+            line(
+                "'%s' is wrong answer ;(. Correct answer was '%s'. Let's try again, %s!",
+                $answer,
+                $correctAnswer,
+                $name
+            );
             return;
         }
 

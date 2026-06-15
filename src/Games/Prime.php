@@ -1,26 +1,39 @@
 <?php
 
-namespace Hexlet\Code\Games;
+namespace BrainGames\Games\Prime;
 
-function getPrimeRound()
+use function BrainGames\Engine\runGame;
+
+const MIN_NUMBER = 2;
+const MAX_NUMBER = 100;
+const GAME_DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+function isPrime(int $number): bool
 {
-    $number = random_int(2, 100);
+    if ($number < 2) {
+        return false;
+    }
 
-    $isPrime = function ($n) {
-        if ($n < 2) {
+    for ($i = 2; $i <= sqrt($number); $i++) {
+        if ($number % $i === 0) {
             return false;
         }
+    }
 
-        for ($i = 2; $i <= sqrt($n); $i++) {
-            if ($n % $i === 0) {
-                return false;
-            }
-        }
+    return true;
+}
 
-        return true;
-    };
+function getPrimeRound(): array
+{
+    $number = random_int(MIN_NUMBER, MAX_NUMBER);
+    $correctAnswer = isPrime($number) ? 'yes' : 'no';
+    return [(string) $number, $correctAnswer];
+}
 
-    $correct = $isPrime($number) ? 'yes' : 'no';
-
-    return [$number, $correct];
+function runPrimeGame(): void
+{
+    runGame(
+        GAME_DESCRIPTION,
+        fn() => getPrimeRound()
+    );
 }

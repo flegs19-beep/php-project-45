@@ -3,9 +3,6 @@
     "description": "Brain games project",
     "license": "proprietary",
     "autoload": {
-        "psr-4": {
-            "Hexlet\\Code\\": "src/"
-        },
         "files": [
             "src/Engine.php",
             "src/Cli.php",

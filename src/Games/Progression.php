@@ -1,25 +1,45 @@
 <?php
 
-namespace Hexlet\Code\Games;
+namespace BrainGames\Games\Progression;
 
-function getProgressionRound()
+use function BrainGames\Engine\runGame;
+
+const MIN_LENGTH = 5;
+const MAX_LENGTH = 10;
+
+const MIN_START = 1;
+const MAX_START = 10;
+
+const MIN_STEP = 2;
+const MAX_STEP = 5;
+
+const HIDDEN_ELEMENT = '..';
+
+const GAME_DESCRIPTION = 'What number is missing in the progression?';
+
+function getProgressionRound(): array
 {
-    $length = random_int(5, 10);
-    $start = random_int(1, 10);
-    $step = random_int(2, 5);
+    $length = random_int(MIN_LENGTH, MAX_LENGTH);
+    $start = random_int(MIN_START, MAX_START);
+    $step = random_int(MIN_STEP, MAX_STEP);
 
     $progression = [];
 
     for ($i = 0; $i < $length; $i++) {
-        $progression[] = $start + $i * $step;
+        $progression[] = $start + ($i * $step);
     }
 
     $hiddenIndex = random_int(0, $length - 1);
-    $correct = $progression[$hiddenIndex];
-
-    $progression[$hiddenIndex] = '..';
-
+    $correctAnswer = $progression[$hiddenIndex];
+    $progression[$hiddenIndex] = HIDDEN_ELEMENT;
     $question = implode(' ', $progression);
+    return [$question, (string) $correctAnswer];
+}
 
-    return [$question, $correct];
+function runProgressionGame(): void
+{
+    runGame(
+        GAME_DESCRIPTION,
+        fn() => getProgressionRound()
+    );
 }
