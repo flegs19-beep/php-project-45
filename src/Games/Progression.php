@@ -17,29 +17,27 @@ const HIDDEN_ELEMENT = '..';
 
 const GAME_DESCRIPTION = 'What number is missing in the progression?';
 
-function getProgressionRound(): array
-{
-    $length = random_int(MIN_LENGTH, MAX_LENGTH);
-    $start = random_int(MIN_START, MAX_START);
-    $step = random_int(MIN_STEP, MAX_STEP);
-
-    $progression = [];
-
-    for ($i = 0; $i < $length; $i++) {
-        $progression[] = $start + ($i * $step);
-    }
-
-    $hiddenIndex = random_int(0, $length - 1);
-    $correctAnswer = $progression[$hiddenIndex];
-    $progression[$hiddenIndex] = HIDDEN_ELEMENT;
-    $question = implode(' ', $progression);
-    return [$question, (string) $correctAnswer];
-}
-
-function runProgressionGame(): void
+function run(): void
 {
     runGame(
         GAME_DESCRIPTION,
-        fn() => getProgressionRound()
+        function (): array {
+            $length = random_int(MIN_LENGTH, MAX_LENGTH);
+            $start = random_int(MIN_START, MAX_START);
+            $step = random_int(MIN_STEP, MAX_STEP);
+
+            $progression = [];
+
+            for ($i = 0; $i < $length; $i++) {
+                $progression[] = $start + ($i * $step);
+            }
+
+            $hiddenIndex = random_int(0, $length - 1);
+            $correctAnswer = $progression[$hiddenIndex];
+            $progression[$hiddenIndex] = HIDDEN_ELEMENT;
+            $question = implode(' ', $progression);
+
+            return [$question, (string) $correctAnswer];
+        }
     );
 }

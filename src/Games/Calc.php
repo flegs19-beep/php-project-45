@@ -22,23 +22,20 @@ function calculate(int $a, int $b, string $operation): int
     }
 }
 
-function getCalcRound(): array
-{
-    $a = random_int(MIN_NUMBER, MAX_NUMBER);
-    $b = random_int(MIN_NUMBER, MAX_NUMBER);
-
-    $operations = ['+', '-', '*'];
-    $operation = $operations[array_rand($operations)];
-
-    $correctAnswer = calculate($a, $b, $operation);
-
-    return ["{$a} {$operation} {$b}", (string) $correctAnswer];
-}
-
-function runCalcGame(): void
+function run(): void
 {
     runGame(
         GAME_DESCRIPTION,
-        fn() => getCalcRound()
+        function (): array {
+            $a = random_int(MIN_NUMBER, MAX_NUMBER);
+            $b = random_int(MIN_NUMBER, MAX_NUMBER);
+
+            $operations = ['+', '-', '*'];
+            $operation = $operations[array_rand($operations)];
+
+            $correctAnswer = calculate($a, $b, $operation);
+
+            return ["{$a} {$operation} {$b}", (string) $correctAnswer];
+        }
     );
 }
